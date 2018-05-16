@@ -1,0 +1,16 @@
+RM = %rm -rf
+CP = %cp
+
+MODULES = bin\render.o
+
+render: $(MODULES)
+	$(CP) bin\render.o ..\Main\bin\render.o
+
+bin\render.o: src\render.c src\render.h
+	cc68x -c src\render.c ..\Raster\bin\raster.o -o bin\render.o
+    
+clean:
+	$(RM) bin\*.o
+	$(RM) ..\Main\bin\render.o
+    
+all: clean render

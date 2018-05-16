@@ -1,0 +1,34 @@
+RM = %rm -rf
+CP = %cp 
+
+MODULES = bin\raster.o bin\rast_asm.o
+RASTER_MODULES  = bin\rast_dr.o bin\raster.o bin\rast_asm.o
+
+
+raster: $(MODULES)
+	$(CP) bin\raster.o ..\Main\bin\raster.o
+	$(CP) bin\rast_asm.o ..\Main\bin\rast_asm.o
+
+
+rast_dr: $(RASTER_MODULES)
+	cc68x -g $(RASTER_MODULES) -o rast_dr
+
+    
+bin\rast_dr.o: src\rast_dr.c src\raster.h
+	cc68x -c src\rast_dr.c -o bin\rast_dr.o
+    
+bin\raster.o: src\raster.c src\raster.h
+	cc68x -c src\raster.c -o bin\raster.o
+
+bin\rast_asm.o: src\rast_asm.s bin\raster.o
+	gen -D -L2 src\rast_asm.s
+	%cp src\rast_asm.o bin\rast_asm.o
+	$(RM) src\rast_asm.o
+
+    
+clean:
+	$(RM) bin\*.o 
+	$(RM) rast_dr
+	$(RM) ..\Main\bin\raster.o ..\Main\bin\rast_asm.o
+    
+all: clean raster

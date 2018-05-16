@@ -1,0 +1,31 @@
+RM = %rm -rf
+
+MODULES = bin\main.o bin\raster.o bin\rast_asm.o bin\model.o bin\events.o \
+bin\player.o bin\obs.o bin\decor.o bin\score.o bin\render.o
+
+game: raster model render main
+	cc68x -g $(MODULES) -o game
+
+
+main: src\main.c
+	cc68x -c src\main.c -o bin\main.o
+
+raster:
+	make -c ..\Raster\ all
+	make -c ..\Main\ return
+    
+model:
+	make -c ..\Model\ all
+	make -c ..\Main\ return
+    
+render:
+	make -c ..\Renderer\ all
+	make -c ..\Main\ return
+
+return:
+
+clean:
+	$(RM) bin\*.o
+	$(RM) game
+
+all: clean game

@@ -1,0 +1,47 @@
+RM = %rm -rf
+CP = %cp
+
+MODULES = bin\model.o bin\events.o bin\player.o bin\obs.o bin\decor.o bin\score.o
+MODEL_MODULES = bin\model_dr.o bin\model.o bin\events.o bin\player.o bin\obs.o bin\decor.o bin\score.o
+
+model: $(MODULES)
+	$(CP) bin\model.o  ..\Main\bin\model.o
+	$(CP) bin\events.o ..\Main\bin\events.o
+	$(CP) bin\player.o ..\Main\bin\player.o
+	$(CP) bin\obs.o    ..\Main\bin\obs.o
+	$(CP) bin\decor.o  ..\Main\bin\decor.o
+	$(CP) bin\score.o  ..\Main\bin\score.o
+
+    
+model_dr: $(MODEL_MODULES)
+	cc68x -g $(MODEL_MODULES) -o model_dr
+
+
+bin\model_dr.o: src\model_dr.c
+	cc68x -c src\model_dr.c -o bin\model_dr.o
+    
+bin\model.o: src\model.c src\model.h
+	cc68x -c src\model.c -o bin\model.o
+    
+bin\events.o: src\events.c src\events.h
+	cc68x -c src\events.c -o bin\events.o
+    
+bin\player.o: src\player.c src\player.h
+	cc68x -c src\player.c -o bin\player.o
+    
+bin\obs.o: src\obs.c src\obs.h
+	cc68x -c src\obs.c -o bin\obs.o
+    
+bin\decor.o: src\decor.c src\decor.h
+	cc68x -c src\decor.c -o bin\decor.o
+    
+bin\score.o: src\score.h src\score.c
+	cc68x -c src\score.c -o bin\score.o
+
+
+clean:
+	$(RM) bin\*.o
+	$(RM) model_dr
+	$(RM) ..\Main\bin\model.o ..\Main\bin\events.o ..\Main\bin\player.o ..\Main\bin\obs.o ..\Main\bin\decor.o ..\Main\bin\score.o
+    
+all: clean model

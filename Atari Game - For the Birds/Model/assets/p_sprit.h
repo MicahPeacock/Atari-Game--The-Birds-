@@ -1,0 +1,156 @@
+#ifndef MODEL_ASSETS_PLAYER_SPRITES_H
+#define MODEL_ASSETS_PLAYER_SPRITES_H
+
+#include "..\..\Raster\src\raster.h"
+
+const UINT32 herbie_normal_1_bitmap[] = 
+{
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x01FE0000, 
+	0x07FFE000, 
+	0x0703F800, 
+	0x0E003E00, 
+	0x0C000F00, 
+	0x0E000380, 
+	0x07800180, 
+	0x0F0005C0, 
+	0x0C0004C0, 
+	0x180004F0, 
+	0x180004FC, 
+	0x7F40411E, 
+	0xFC00A207, 
+	0xE2009C03, 
+	0x7C4181FF, 
+	0x3F8E403E, 
+	0x0FF040F0, 
+	0x01C027E0, 
+	0x00F83F80, 
+	0x007FFC00, 
+	0x000FE000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000 
+};
+
+const UINT32 herbie_normal_1_alpha_bitmap[] = 
+{
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFE01FFFF, 
+	0xF8001FFF, 
+	0xF80007FF, 
+	0xF00001FF, 
+	0xF00000FF, 
+	0xF000007F, 
+	0xF800007F, 
+	0xF000003F, 
+	0xF000003F, 
+	0xE000000F, 
+	0xE0000003, 
+	0x80000001, 
+	0x00000000, 
+	0x00000000, 
+	0x80000000, 
+	0xC0000001, 
+	0xF000000F, 
+	0xFE00001F, 
+	0xFF00007F, 
+	0xFF8003FF, 
+	0xFFF01FFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF 
+};
+
+const UINT32 herbie_normal_2_bitmap[] = 
+{
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x01FE0000, 
+	0x07FFE000, 
+	0x0703F800, 
+	0x0E003E00, 
+	0x0C000F00, 
+	0x0E000380, 
+	0x07800180, 
+	0x0F0005C0, 
+	0x0C0004C0, 
+	0x180004F0, 
+	0x180004FC, 
+	0x1840411E, 
+	0x1D80A207, 
+	0x7F009C03, 
+	0xF80081FF, 
+	0xC001403E, 
+	0xE10140F0, 
+	0x7E1127E0, 
+	0x3C223F80, 
+	0x0FC7FC00, 
+	0x07FFE000, 
+	0x007C0000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000, 
+	0x00000000 
+};
+
+const UINT32 herbie_normal_2_alpha_bitmap[] = 
+{
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFE01FFFF, 
+	0xF8001FFF, 
+	0xF80007FF, 
+	0xF00001FF, 
+	0xF00000FF, 
+	0xF000007F, 
+	0xF800007F, 
+	0xF000003F, 
+	0xF000003F, 
+	0xE000000F, 
+	0xE0000003, 
+	0xE0000001, 
+	0xE0000000, 
+	0x80000000, 
+	0x00000000, 
+	0x00000001, 
+	0x0000000F, 
+	0x8000001F, 
+	0xC000007F, 
+	0xF00003FF, 
+	0xF8001FFF, 
+	0xFF83FFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF, 
+	0xFFFFFFFF 
+};
+
+
+const Bitmap32 herbie_normal_1 = {&herbie_normal_1_bitmap, 32};
+const Bitmap32 herbie_normal_1_alpha = {&herbie_normal_1_alpha_bitmap, 32};
+const Bitmap32 herbie_normal_2 = {&herbie_normal_2_bitmap, 32};
+const Bitmap32 herbie_normal_2_alpha = {&herbie_normal_2_alpha_bitmap, 32};
+
+#endif

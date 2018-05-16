@@ -1,0 +1,43 @@
+RM      = %rm -rf
+ARCHIVE = ar -rv
+
+LIBRARY_MODULES = bin\music.o bin\effects.o bin\sound.o
+MUSIC_MODULES   = bin\music_dr.o bin\music.o bin\sound.o 
+EFFECTS_MODULES = bin\eff_dr.o bin\effects.o bin\sound.o
+
+
+sound: $(LIBRARY_MODULES)
+	$(ARCHIVE) ..\Main\lib\sound.a $(LIBRARY_MODULES)
+
+
+music_dr: $(MUSIC_MODULES)
+	cc68x -g $(MUSIC_MODULES) -o music_dr
+    
+eff_dr: $(EFFECTS_MODULES)
+	cc68x -g $(EFFECTS_MODULES) -o eff_dr
+
+    
+bin\music_dr.o: src\music_dr.c src\music.h
+	cc68x -c src\music_dr.c -o bin\music_dr.o
+
+bin\eff_dr.o: src\eff_dr.c src\effects.h
+	cc68x -c src\eff_dr.c -o bin\eff_dr.o
+   
+bin\music.o: src\music.c src\music.h
+	cc68x -c src\music.c -o bin\music.o
+      
+bin\effects.o: src\effects.c src\effects.h
+	cc68x -c src\effects.c -o bin\effects.o
+    
+bin\sound.o: src\sound.c src\sound.h
+	cc68x -c src\sound.c -o bin\sound.o
+
+    
+clean:
+	$(RM) bin\*.o 
+	$(RM) music_dr 
+	$(RM) eff_dr
+	$(RM) ..\Main\lib\sound.a
+    
+all: sound
+    
